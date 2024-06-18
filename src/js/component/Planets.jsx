@@ -1,21 +1,22 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 
-export const Characters = () => {
+export const Planets = () => {
   const { actions, store } = useContext(Context);
 
   useEffect(() => {
-    actions.getCharacters();
+    actions.getPlanets();
+
   }, []);
 
   return (
     <div className="text-center mt-5">
-      <h1>Personajes</h1>
+      <h1>Planets</h1>
       <div className="card-group">
         <div className="d-flex flex-row overflow-scroll">
-          {store.personajes.map((item) => (
+          {store.planets.map((item) => (
             <div className="card" style={{ width: "18rem", flex: "none", margin: "10px" }} key={item.uid}>
-              <img src={`https://starwars-visualguide.com/assets/img/characters/${item.uid}.jpg`} className="card-img-top" alt={item.name} />
+              <img src={`https://starwars-visualguide.com/assets/img/planets/${item.uid}.jpg`} className="card-img-top" alt={item.name} />
               <div className="card-body">
                 <h5 className="card-title"><strong>{item.name}</strong></h5>
               </div>
