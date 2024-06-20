@@ -5,9 +5,9 @@ export const Characters = () => {
   const { actions, store } = useContext(Context);
 
   useEffect(() => {
-    actions.getCharacters();
-  }, []);
 
+    actions.getCharacters();
+  }, [actions]);
   return (
     <div className="text-center mt-5">
       <h1>Personajes</h1>
@@ -15,7 +15,11 @@ export const Characters = () => {
         <div className="d-flex flex-row overflow-scroll">
           {store.personajes.map((item) => (
             <div className="card" style={{ width: "18rem", flex: "none", margin: "10px" }} key={item.uid}>
-              <img src={`https://starwars-visualguide.com/assets/img/characters/${item.uid}.jpg`} className="card-img-top" alt={item.name} />
+              <img
+                src={`https://starwars-visualguide.com/assets/img/characters/${item.url.split("/")[5]}.jpg`}
+                className="card-img-top"
+                alt={item.name}
+              />
               <div className="card-body">
                 <h5 className="card-title"><strong>{item.name}</strong></h5>
               </div>
@@ -26,3 +30,4 @@ export const Characters = () => {
     </div>
   );
 };
+ 

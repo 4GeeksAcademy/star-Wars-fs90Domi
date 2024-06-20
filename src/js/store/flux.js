@@ -1,3 +1,4 @@
+import { element } from "prop-types";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -7,10 +8,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starships:[],
 		},
 		actions: {
-			// Use getActions to call a function within a function
+
 			getCharacters: async () => {
 				try { 
-					const response = await fetch("https://www.swapi.tech/api/people");
+					const response = await fetch("https://swapi.dev/api/people");
 					const data = await response.json();
 					setStore({ personajes: data.results });
 				} catch (error) {
@@ -20,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPlanets: async () => {
 				try { 
-					const response = await fetch("https://www.swapi.tech/api/planets/");
+					const response = await fetch("https://swapi.dev/api/planets/");
 					const data = await response.json();
 					setStore({ planets: data.results });
 				} catch (error) {
@@ -30,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getStarships: async () => {
 				try { 
-					const response = await fetch("https://www.swapi.tech/api/starships/");
+					const response = await fetch("https://swapi.dev/api/starships/");
 					const data = await response.json();
 					setStore({ starships: data.results });
 				} catch (error) {
