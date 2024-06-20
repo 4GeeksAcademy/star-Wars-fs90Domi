@@ -12,13 +12,13 @@ export const Singleplanets = props => {
 	}, [])
 
 	return (
-		<div>
+		<div className="card text-center" style={{ width: "18rem", flex: "none", margin: "10px" }}>
 			<img
                 src={`https://starwars-visualguide.com/assets/img/planets/${theid}.jpg`}
                 className="card-img-top"
                 alt={store.planeta.name}
               />
-			{/* <h1> {store.planeta.name}</h1> */}
+			<h1> {store.planeta.name}</h1>
 			
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-
+import { Link } from "react-router-dom";
 
 export const Starships = () => {
   const { actions, store } = useContext(Context);
@@ -25,6 +25,11 @@ export const Starships = () => {
               <div className="card-body">
                 <h5 className="card-title"><strong>{starship.name}</strong></h5>
               </div>
+              {/* <Link to={"/singlestarship/" + (id+1)} >
+              <button className="btn btn-outline-dark">
+                mas info 
+              </button> 
+              </Link> */}
             </div>
           ))}
         </div>

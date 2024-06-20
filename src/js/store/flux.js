@@ -1,4 +1,4 @@
-import { element } from "prop-types";
+// import { element } from "prop-types";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -6,8 +6,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personajes: [],
 			personaje: {},
 			planets: [],
-			paneta:{},
+			planeta:{},
 			starships:[],
+			nave:{},
 		},
 		actions: {
 
@@ -63,6 +64,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
+
+			// getSingleStarship: async (id) => {
+			// 	try { 
+			// 		const response = await fetch("https://swapi.dev/api/starships/" + id);
+			// 		const data = await response.json();
+			// 		console.log(data);
+			// 		setStore({ nave: data});
+			// 	} catch (error) {
+			// 		console.log(error);
+			// 	}
+			// },
+
 		}
 	};
 };
