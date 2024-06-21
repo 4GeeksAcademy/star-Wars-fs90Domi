@@ -22,7 +22,7 @@ export const Planets = () => {
               className="card-img-top"
               alt={planet.name}
             />
-            // sino = :
+            // sino es igal a :
             : 
               <img
                 src={`https://starwars-visualguide.com/assets/img/planets/${planet.url.split("/")[5]}.jpg`}

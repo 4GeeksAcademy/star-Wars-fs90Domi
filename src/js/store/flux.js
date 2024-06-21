@@ -65,16 +65,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			// getSingleStarship: async (id) => {
-			// 	try { 
-			// 		const response = await fetch("https://swapi.dev/api/starships/" + id);
-			// 		const data = await response.json();
-			// 		console.log(data);
-			// 		setStore({ nave: data});
-			// 	} catch (error) {
-			// 		console.log(error);
-			// 	}
-			// },
+			getSingleStarship: async (id) => {
+				try { 
+					const response = await fetch("https://swapi.dev/api/starships/" + id);
+					const data = await response.json();
+					console.log(data);
+					setStore({ nave: data});
+				} catch (error) {
+					console.log(error);
+				}
+			},
 
 		}
 	};

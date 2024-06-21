@@ -24,11 +24,21 @@ export const Characters = () => {
               <div className="card-body">
                 <h5 className="card-title"><strong>{item.name}</strong></h5>
               </div>
+
+
+              <div className="row-1">
               <Link to={"/single/" + (id+1)} >
-              <button className="btn btn-outline-dark">
+              <button className="btn btn-outline-dark col-4 me-3">
                 mas info 
               </button> 
               </Link>
+               
+              <button className="btn btn-outline-dark col-2 ps-3">
+              <i className="fas fa-heart"></i>
+              </button>        
+
+              </div>
+
 
             </div>
           ))}

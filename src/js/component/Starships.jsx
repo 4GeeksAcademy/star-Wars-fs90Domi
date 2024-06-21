@@ -16,7 +16,6 @@ export const Starships = () => {
         <div className="d-flex flex-row overflow-scroll">
           {store.starships.map((starship,id) => (
             <div className="card" style={{ width: "18rem", flex: "none", margin: "10px" }} key={id}>
-              {/* Corrected image source URL */}
               <img
                 src={`https://starwars-visualguide.com/assets/img/starships/${starship.url.split("/")[5]}.jpg`}
                 className="card-img-top"
@@ -25,11 +24,11 @@ export const Starships = () => {
               <div className="card-body">
                 <h5 className="card-title"><strong>{starship.name}</strong></h5>
               </div>
-              {/* <Link to={"/singlestarship/" + (id+1)} >
+              <Link to={"/singlestarship/" + (id+1)} >
               <button className="btn btn-outline-dark">
                 mas info 
               </button> 
-              </Link> */}
+              </Link>
             </div>
           ))}
         </div>
