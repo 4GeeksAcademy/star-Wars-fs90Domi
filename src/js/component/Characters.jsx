@@ -32,7 +32,7 @@ export const Characters = () => {
                                     </button>
                                 </Link>
 
-                                <button className="btn btn-outline-dark col-2 ps-3" onClick={() => actions.addToFavorites(item)}>
+                                <button className="btn btn-outline-dark col-2 ps-3" onClick={() => actions.addToFavorites(item.name)}>
                                     <i className="fas fa-heart"></i>
                                 </button>
                             </div>

@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             planeta: {},
             vehicles: [],
             nave: {},
-            favorites: JSON.parse(localStorage.getItem("favorites")) || []
+            favorites:[],
         },
         actions: {
             getCharacters: async () => {
@@ -72,56 +72,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             addToFavorites: (item) => {
                 const store = getStore();
-                // esto me muestra si el item ya está en favoritos
-                const exists = store.favorites.find(fav => fav.url === item.url);
-                if (!exists) {
+                if (store.favorites.includes(item)) {
+                    let aux=[]
+                    aux=store.favorites.filter((fav)=>fav!=item)
+                    setStore({favorites:aux})
+
+                }
+                else {
                     setStore({ favorites: [...store.favorites, item] });
-                    // esto me guardar en localStorage para que no se me repitan las cosas 
-                    localStorage.setItem("favorites", JSON.stringify([...store.favorites, item]));
                 }
             },
-
-            removeFromFavorites: (item) => {
-                const store = getStore();
-                const updatedFavorites = store.favorites.filter(fav => fav.url !== item.url);
-                setStore({ favorites: updatedFavorites });
-                // aca me actualiza el localStorage
-                localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-            }
         },
-		addToFavoritesP: (planet) => {
-			const store = getStore();
-			const exists = store.favorites.find(fav => fav.url === planet.url);
-			if (!exists) {
-				setStore({ favorites: [...store.favorites, planet] });
-				localStorage.setItem("favorites", JSON.stringify([...store.favorites, planet]));
-			}
-		},
+        
 
-		removeFromFavoritesP: (planet) => {
-			const store = getStore();
-			const updatedFavorites = store.favorites.filter(fav => fav.url !== planet.url);
-			setStore({ favorites: updatedFavorites });
-			localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-		},
+        
 
-		// addToFavoritesS: (starship) => {
-		// 	const store = getStore();
-		// 	const exists = store.favorites.find(fav => fav.url === starship.url);
-		// 	if (!exists) {
-		// 		setStore({ favorites: [...store.favorites, starship] });
-		// 		localStorage.setItem("favorites", JSON.stringify([...store.favorites, starship]));
-		// 	}
-		// },
+        
 
-		// removeFromFavoritesS: (starship) => {
-		// 	const store = getStore();
-		// 	const updatedFavorites = store.favorites.filter(fav => fav.url !== starship.url);
-		// 	setStore({ favorites: updatedFavorites });
-		// 	localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-		// },
-
-	
 
     };
 };
