@@ -1,23 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1 fw-bold font-monospace fs-2 mr-2">Welcome to my STARWARS B L O G </span>
-			</Link>
-			<div class="dropdown">
-				<a class="btn btn-red dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Favorites
-				</a>
+    const { store, actions } = useContext(Context);
 
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Action</a></li>
-					<li><a class="dropdown-item" href="#">Another action</a></li>
-					<li><a class="dropdown-item" href="#">Something else here</a></li>
-				</ul>
-			</div>
-		</nav>
-	);
+    const removeFromFavorites = (item) => {
+        actions.removeFromFavorites(item);
+    };
+
+    return (
+        <nav className="navbar navbar-light mb-3 bg-black">
+           <div className="d-flex">
+            <div className="navbar-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1920px-Star_Wars_Logo.svg.png"></img>
+            </div>
+            <div className="dropdown">
+                <button className="btn btn-red dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                 <i className="fab fa-galactic-senate"> JEDI favorite </i> ({store.favorites.length})
+                </button>
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {store.favorites.map((favorite, index) => (
+                        <li key={index}>
+                            <span className="dropdown-item ">{favorite.name}</span>
+                            <button className="btn btn-outline-dark col-2 ps-3" onClick={() => removeFromFavorites(favorite)}>
+                                <i className="fas fa-trash "></i>
+                            </button>
+                        </li>
+                    ))}
+                    {store.favorites.length === 0 && (
+                        <li>
+                            <span className="dropdown-item text-muted">No favorites selected</span>
+                        </li>
+                    )}
+                </ul>
+            </div>
+            </div>
+        </nav>
+    );
 };

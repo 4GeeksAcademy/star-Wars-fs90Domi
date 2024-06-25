@@ -8,10 +8,10 @@ export const Planets = () => {
   useEffect(() => {
     actions.getPlanets();
   }, []); 
-// console.log(store.planets);
+
   return (
     <div className="text-center mt-5">
-      <h1>Planets</h1>
+      <h1 className="fw-bold font-monospace text-white">Planets</h1>
       <div className="card-group">
         <div className="d-flex flex-row overflow-scroll">
           {store.planets.map((planet,id) => (
@@ -33,11 +33,18 @@ export const Planets = () => {
               <div className="card-body">
                 <h5 className="card-title"><strong>{planet.name}</strong></h5>
               </div>
+
+              <div className="row"> 
               <Link to={"/singleplanet/" + (id+1)} >
               <button className="btn btn-outline-dark">
                 mas info 
               </button> 
               </Link>
+            </div>
+
+            <button className="btn btn-outline-dark col-2 ps-3" onClick={() => actions.addToFavoritesP(planet)}>
+              <i className="fas fa-heart"></i>
+              </button> 
             </div>
           ))}
         </div>
