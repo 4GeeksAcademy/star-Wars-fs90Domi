@@ -22,18 +22,18 @@ export const Characters = () => {
                                 alt={item.name}
                             />
                             <div className="card-body">
-                                <h5 className="card-title"><strong>{item.name}</strong></h5>
+                                <h5 className="card-title text-success"><strong>{item.name}</strong></h5>
                             </div>
 
                             <div className="row-1">
                                 <Link to={"/single/" + (id + 1)} >
-                                    <button className="btn btn-outline-dark col-4 me-3">
-                                        Mas info
+                                    <button className="btn btn-outline-success col-4 me-3 text-success">
+                                    INFO
                                     </button>
                                 </Link>
 
-                                <button className="btn btn-outline-dark col-2 ps-3" onClick={() => actions.addToFavorites(item.name)}>
-                                    <i className="fas fa-heart"></i>
+                                <button className="btn btn-outline-success col-2 ps-3" onClick={() => actions.addToFavorites(item.name)}>
+                                    <i className="fas fa-heart text-success"></i>
                                 </button>
                             </div>
                         </div>

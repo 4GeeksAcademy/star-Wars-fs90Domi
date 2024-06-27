@@ -11,7 +11,7 @@ export const Planets = () => {
 
   return (
     <div className="text-center mt-5">
-      <h1 className="fw-bold font-monospace text-warning">Planets</h1>
+      <h1 className="text-title fw-bold font-monospace text-warning">Planets</h1>
       <div className="card-group">
         <div className="d-flex flex-row overflow-scroll">
           {store.planets.map((planet, id) => (
@@ -22,7 +22,7 @@ export const Planets = () => {
                   className="card-img-top"
                   alt={planet.name}
                 />
-                // sino es igal a :
+                // sino se representa con dos puntos aqui :
                 :
                 <img
                   src={`https://starwars-visualguide.com/assets/img/planets/${planet.url.split("/")[5]}.jpg`}
@@ -31,21 +31,21 @@ export const Planets = () => {
                 />
               }
               <div className="card-body">
-                <h5 className="card-title"><strong>{planet.name}</strong></h5>
+                <h5 className="card-title text-danger"><strong>{planet.name}</strong></h5>
               </div>
 
               <div className="row-1">
-               
-                  <Link to={"/singleplanet/" + (id + 1)} >
-                    <button className="btn btn-outline-dark col-4 me-3">
-                      mas info
-                    </button>
-                  </Link>
-                
-                  <button className="btn btn-outline-dark col-2 ps-3" onClick={() => actions.addToFavorites(planet.name)}>
-                    <i className="fas fa-heart"></i>
+
+                <Link to={"/singleplanet/" + (id + 1)} >
+                  <button className="btn btn-outline-danger col-4 me-3">
+                    INFO
                   </button>
-                 </div>
+                </Link>
+
+                <button className="btn btn-outline-danger col-2 ps-3" onClick={() => actions.addToFavorites(planet.name)}>
+                  <i className="fas fa-heart text-danger"></i>
+                </button>
+              </div>
             </div>
           ))}
         </div>
