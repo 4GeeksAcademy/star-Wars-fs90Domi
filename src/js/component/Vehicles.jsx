@@ -11,8 +11,8 @@ export const Vehicles = () => {
 
     return (
         <div className="text-center mt-5">
-            <h1 className="fw-bold font-monospace text-white">Veiculos</h1>
-            <div className="card-group">
+            <h1 className="fw-bold font-monospace text-warning">Vehicles</h1>
+            <div className="card-group bg-black">
                 <div className="d-flex flex-row overflow-scroll">
                     {store.vehicles.map((vehicles, id) => (
                         <div className="card" style={{ width: "18rem", flex: "none", margin: "10px" }} key={id}>
@@ -26,7 +26,7 @@ export const Vehicles = () => {
                             </div>
 
                             <div className="row-1">
-                                <Link to={"/singlevehicle/" + (id + 1)} >
+                                <Link to={"/singlevehicle/" + (vehicles.url.split("/")[5])} >
                                     <button className="btn btn-outline-dark col-4 me-3">
                                         Mas info
                                     </button>

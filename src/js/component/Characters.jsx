@@ -10,9 +10,9 @@ export const Characters = () => {
     }, []);
 
     return (
-        <div className="text-center mt-5">
-            <h1 className="fw-bold font-monospace text-white">Personajes</h1>
-            <div className="card-group">
+        <div className="text-center mt-5 ">
+            <h1 className="fw-bold font-monospace text-warning">Characters</h1>
+            <div className="card-group text-bg-dark">
                 <div className="d-flex flex-row overflow-scroll">
                     {store.personajes.map((item, id) => (
                         <div className="card" style={{ width: "18rem", flex: "none", margin: "10px" }} key={id}>

@@ -12,8 +12,8 @@ export const Navbar = () => {
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1920px-Star_Wars_Logo.svg.png"></img>
             </div>
             <div className="dropdown">
-                <button className="btn btn-red dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                 <i className="fab fa-galactic-senate"> JEDI favorite </i> ({store.favorites.length})
+                <button className="btn btn-red dropdown-toggle text-warning fs-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                 <i className="fab fa-galactic-senate"></i> ({store.favorites.length})
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     {store.favorites.map((favorite, index) => (
