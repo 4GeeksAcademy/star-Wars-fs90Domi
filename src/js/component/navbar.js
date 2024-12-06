@@ -1,17 +1,90 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import Logo from "../../img/Logo.png";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
-		</nav>
-	);
+  const { store, actions } = useContext(Context);
+
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
+          <img
+            src={Logo} // Ruta de la imagen que subiste
+            alt="Star Wars Logo"
+            style={{ width: "70px", height: "auto" }} // Ajuste de tamaño
+          />
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/persons">
+                Persons
+              </Link>
+            </li>
+          </ul>
+          <ul
+            className="navbar-nav ms-auto"
+            style={{ marginRight: "60px" }} // Aplica el margen directamente
+          >
+            <li className="nav-item dropdown">
+              <button
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="navbarDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Favorites
+              </button>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdown"
+                style={{ width: "150px" }} // Ajuste del ancho
+              >
+                {store.readLater.length > 0 ? (
+                  store.readLater.map((character) => (
+                    <li
+                      key={character.uid}
+                      className="d-flex justify-content-between align-items-center"
+                    >
+                      <button className="dropdown-item" type="button">
+                        {character.name}
+                      </button>
+                      <button
+                        className="btn btn-danger btn-sm me-2"
+                        onClick={() => actions.toggleReadLater(character)} // Elimina al personaje de los favoritos
+                        title="Remove from Favorites"
+                      >
+                        <i className="fa fa-trash fa-xs"></i>{" "}
+                        {/* Ícono de basurero pequeño */}
+                      </button>
+                    </li>
+                  ))
+                ) : (
+                  <li>
+                    <button className="dropdown-item" type="button">
+                      (Empty)
+                    </button>
+                  </li>
+                )}
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 };

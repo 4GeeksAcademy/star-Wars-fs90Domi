@@ -1,3 +1,6 @@
-/* 
-    General Styles
-*/
+body {
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/549/675/desktop-wallpaper-star-wars-star-backgrounds-%C2%B7%E2%91%A0-star-background.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
