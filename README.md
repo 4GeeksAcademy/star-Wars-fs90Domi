@@ -1,7 +1,7 @@
 # WebApp Template with React JS
 
 
-Used by 4Geeks.com and 4Geeks Academy students, this template helps to bootstrap your first multi-page web applications by integrating with React latest version, vercel deployments and Vite for bundling.
+Used by 4Geeks.com and 4Geeks Academy students, this template helps to bootstrap your first multi-page web applications by integrating with React latest version, vercel deployments and [Vite](https://4geeks.com/es/lesson/introduccion-a-vite-como-empaquetador-de-modulos) for bundling.
 
 ### Getting stated:
 
