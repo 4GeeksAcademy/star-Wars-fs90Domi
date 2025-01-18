@@ -1,0 +1,45 @@
+#contPerso {
+    display: flex;
+    height: 490px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    gap: 15px;
+    background-color: azure;
+}
+
+#cardPerso, #cardPlaneta {
+    /* position: relative; */
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    gap: 15px;
+    display: inline;
+    scroll-snap-align: center;
+    margin: 50px 15px 0;
+
+}
+
+#contPlanetas {
+    display: flex;
+    
+    height: 450px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    gap: 15px;
+    background-color: antiquewhite;
+}
+#ulPer{
+    background-color: azure;
+    border-color: azure;
+}
+#contSpec{
+    display: flex;    
+    height: 500px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    gap: 15px;
+    background-color: burlywood;
+}
